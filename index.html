@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YUVATMA 2026 | Book your spot</title>
+<meta name="description" content="Book your spot for YUVATMA, November 28–29, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600;800&family=Noto+Sans:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <img class="logo" src="assets/logo.png" alt="YUVATMA">
+  <nav><a href="my-booking.html">My booking</a><a class="btn sm" href="#book">Book now</a></nav>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="namaste">ನಮಸ್ಕಾರ 🙏</p>
+    <h1>YUVATMA 2026</h1>
+    <p class="lead">Two days of bhajan, seva and a peaceful setting. Come with friends or family.</p>
+    <ul class="facts">
+      <li><b>Dates</b> November 28–29, 2026</li>
+      <li><b>Venue</b> To be announced</li>
+      <li><b>Contribution</b> ₹1,780 per person (tentative)</li>
+    </ul>
+    <a class="btn" href="#book">Book your spot</a>
+  </div>
+  <img class="poster" src="assets/poster.png" alt="YUVATMA poster: November 28 and 29">
+</section>
+
+<section class="hl">
+  <div><h3>ಪ್ರಶಾಂತ ವಾತಾವರಣ</h3><p>A peaceful setting</p></div>
+  <div><h3>ಒಳ್ಳೆ ಸೇವಾ</h3><p>Seva together</p></div>
+  <div><h3>ಭಜನೆ</h3><p>Bhajan in the evening</p></div>
+</section>
+
+<main id="book" class="book">
+  <h2>Book your spot</h2>
+  <p class="sub">Takes about 3 minutes. One booking covers up to 4 people.</p>
+  <div class="card" id="card">
+    <ol class="steps" id="steps"></ol>
+    <form id="f" novalidate>
+      <div id="stage"></div>
+      <input class="hp" type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="total" id="total"></div>
+      <p class="err" id="err" role="alert"></p>
+      <div class="nav">
+        <button type="button" class="btn ghost" id="back">Back</button>
+        <button type="submit" class="btn" id="next">Continue</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <p>Questions? <a id="wa" href="#">Message us on WhatsApp</a></p>
+  <p>Team YUVATMA ❤️</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
