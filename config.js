@@ -2,13 +2,13 @@
 window.YUV = {
   // 1. Google Apps Script Web App URL
   // Paste your published Web App URL below (must end in /exec):
-  API_URL: "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE",
+  API_URL: "https://script.google.com/macros/s/AKfycbz1dRrH2VNpmSD79Hx_OIAz-cDSub_Xsv_j2UB1yVeIdbGB6VVNYL-DjYE7pHrU8EY5/exec",
 
   // 2. Booking Status & Marketing Control
   // Set BOOKINGS_OPEN to:
   //   false -> Shows "Bookings open on 7th November" and allows WhatsApp notifications/preview
   //   true  -> Bookings are live and active!
-  BOOKINGS_OPEN: false,
+  BOOKINGS_OPEN: true,
   BOOKING_OPEN_DATE_STR: "7th November 2026",
 
   // 3. Trip & Seat Capacity
