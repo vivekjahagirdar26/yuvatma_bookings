@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YUVATMA 2026 | Yalagur Yatra & Bookings</title>
-<meta name="description" content="Join YUVATMA 2026 Yalagur Yatra on November 28–29, 2026. Two days of soulful bhajan, uplifting seva, satvik prasada, and youth fellowship.">
+<title>Yuvatma 2026 | Yalagur | GoSeva - 3.0</title>
+<meta name="description" content="Join Yuvatma 2026 | Yalagur | GoSeva - 3.0 on November 28–29, 2026. Two days of sacred Go Seva, evening CampFire, soulful Bhajan, Parayana, and youth fellowship.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600;700;800&family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,8 +14,8 @@
 
 <!-- Announcement Bar -->
 <div class="announcement-bar" id="top-announcement">
-  <span>📢 <b>Bookings Open on 7th November 2026!</b> Limited to 35 Bus Seats.</span>
-  <a href="#schedule">View Schedule &rarr;</a>
+  <span>📢 <b>YUVATMA GoSeva - 3.0</b> • Bookings Open 7th Nov • Limited to 35 Seats</span>
+  <button type="button" id="bar-interested-btn">✋ Interested</button>
 </div>
 
 <!-- Header -->
@@ -34,9 +34,10 @@
     <a href="#about" class="nav-link">About</a>
     <a href="#schedule" class="nav-link">Schedule</a>
     <a href="#facilities" class="nav-link">Facilities</a>
-    <a href="#seats" class="nav-link">Seats</a>
     <a href="my-booking.html" class="nav-link">My booking</a>
-    <a class="btn sm" href="#book" id="top-book-btn">Book now</a>
+    <div id="top-action-container" style="display:inline-block">
+      <button type="button" class="btn sm" id="top-interested-btn">✋ Interested</button>
+    </div>
   </nav>
 </header>
 
@@ -46,12 +47,9 @@
   <div class="sidebar-header">
     <div class="sidebar-brand">
       <img src="logo.png" alt="YUVATMA" class="sidebar-logo" onerror="this.src='assets/logo.png'">
-      <div>
-        <h3 class="sidebar-title">YUVATMA</h3>
-        <p class="sidebar-sub">Yalagur Yatra 2026</p>
-      </div>
+      <h3 class="sidebar-title">Yalagur Yatra 2026</h3>
     </div>
-    <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu">&times;</button>
+    <button type="button" class="sidebar-close" id="sidebar-close" aria-label="Close menu" title="Close menu">&#10005;</button>
   </div>
 
   <!-- Profile Card inside Sidebar -->
@@ -59,13 +57,13 @@
     <div class="profile-avatar">👤</div>
     <div class="profile-info">
       <span class="profile-name" id="sidebar-user-name">Welcome, Pilgrim</span>
-      <span class="profile-status" id="sidebar-user-status">Not signed in</span>
+      <span class="profile-status" id="sidebar-user-status">GoSeva - 3.0</span>
     </div>
   </div>
 
   <nav class="sidebar-nav">
     <a href="#about" class="sidebar-link">
-      <span class="icon">🚩</span> About Yalagur Yatra
+      <span class="icon">🐄</span> Go Seva &amp; Highlights
     </a>
     <a href="#schedule" class="sidebar-link">
       <span class="icon">📅</span> 2-Day Detailed Schedule
@@ -75,6 +73,9 @@
     </a>
     <a href="#seats" class="sidebar-link">
       <span class="icon">🚌</span> Live Seat Availability
+    </a>
+    <a href="javascript:void(0)" class="sidebar-link" id="sb-interested-link">
+      <span class="icon">✋</span> I'm Interested (Join Group)
     </a>
     <a href="#book" class="sidebar-link">
       <span class="icon">🎟️</span> Book Your Spot
@@ -86,9 +87,9 @@
     <div class="sidebar-divider"></div>
     <div class="sidebar-contact-box">
       <h4>Contact YUVATMA</h4>
-      <p class="contact-sub">Have questions or want trip updates? We are just a message away:</p>
-      <a href="https://wa.me/919739755771" target="_blank" class="contact-pill wa" id="sb-wa-link">
-        <span>💬</span> WhatsApp: +91 9739755771
+      <p class="contact-sub">Have questions or want trip updates? Reach out directly:</p>
+      <a href="https://chat.whatsapp.com/E0sBKM5HKgl7DMPtVPsWwL?s=cl&p=a&iam=2" target="_blank" class="contact-pill wa" id="sb-wa-link">
+        <span>💬</span> WhatsApp Group
       </a>
       <a href="tel:+919739755771" class="contact-pill phone" id="sb-tel-link">
         <span>📞</span> Call: +91 9739755771
@@ -103,23 +104,24 @@
 <!-- Hero Section -->
 <section class="hero">
   <div>
-    <div class="launch-badge">🗓️ Bookings Open on 7th Nov • 35 Seats Only</div>
+    <div class="launch-badge">🗓️ Bookings Open 7th Nov • Age Limit: 18–35 yrs</div>
     <p class="namaste">ನಮಸ್ಕಾರ 🙏</p>
-    <h1>YUVATMA 2026 | Yalagur</h1>
-    <p class="lead">Two days of soulful bhajan, uplifting seva and spiritual rejuvenation at Sri Kshetra Yalagur. Journey together with friends and family.</p>
+    <h1>Yuvatma 2026 | Yalagur | GoSeva - 3.0</h1>
+    <p class="lead">A soulful youth pilgrimage combining sacred Go Seva, evening CampFire, melodious Bhajan, Parayana and divine fellowship at Sri Kshetra Yalagur.</p>
     <ul class="facts">
       <li><b>Dates</b> November 28–29, 2026 (Saturday &amp; Sunday)</li>
       <li><b>Venue</b> Sri Kshetra Yalagur, Nidagundi, Karnataka</li>
+      <li><b>Age Limit</b> 18–35 years</li>
       <li><b>Capacity</b> Limited to 35 Seats Only</li>
-      <li><b>Contribution</b> ₹1,780 per person (tentative)</li>
+      <li id="hero-fact-price"><b>Contribution</b> Disclosed on 7th Nov</li>
     </ul>
-    <div class="hero-actions">
-      <a class="btn" href="#book" id="hero-book-btn">Book your spot</a>
+    <div class="hero-actions" id="hero-actions-container">
+      <button type="button" class="btn" id="hero-interested-btn">✋ Interested</button>
       <a class="btn ghost" href="#schedule" style="color:#fff;box-shadow:inset 0 0 0 2px var(--gold)">View 2-Day Schedule</a>
     </div>
   </div>
   <div>
-    <img class="poster" src="poster.png" alt="YUVATMA poster: November 28 and 29" onerror="this.src='assets/poster.png'">
+    <img class="poster" src="assets/hero.jpg" alt="YUVATMA 2026 Yalagur GoSeva 3.0" onerror="this.src='poster.png'">
   </div>
 </section>
 
@@ -128,8 +130,8 @@
   <div class="seat-card">
     <div class="seat-header">
       <span class="live-badge"><span class="live-dot"></span> Live Seat Tracker</span>
-      <h2 class="seat-title">35 Bus Seats Available</h2>
-      <p class="seat-subtitle">Live real-time sync with booking registry. Reserve promptly once bookings open!</p>
+      <h2 class="seat-title">35 Volvo Bus Seats</h2>
+      <p class="seat-subtitle">Live real-time sync with booking registry. Age limit: 18–35 years.</p>
     </div>
     <div class="seat-stats">
       <div class="seat-numbers">
@@ -144,7 +146,7 @@
       </div>
       <p class="seat-footer-note">
         <span id="seat-status-note">🟢 Registration opens on 7th Nov 2026</span>
-        <span>Bus Capacity: 35</span>
+        <span>Bus Capacity: 35 Seats</span>
       </p>
     </div>
   </div>
@@ -153,53 +155,53 @@
 <!-- Quick Highlights -->
 <section class="hl">
   <div class="hl-card">
-    <h3>ಪ್ರಶಾಂತ ವಾತಾವರಣ</h3>
-    <p>A peaceful, divine atmosphere at the sacred Sri Yalagureshwara shrine away from city rush.</p>
+    <h3>🐄 ಗೋ ಸೇವಾ (Go Seva)</h3>
+    <p>Dedicated Gau Seva at the Goshala — feeding, grooming, cleaning, and receiving the sacred blessings of Gomata.</p>
   </div>
   <div class="hl-card">
-    <h3>ಒಳ್ಳೆ ಸೇವಾ</h3>
-    <p>Hands-on seva, temple cleanliness, community prasada distribution and youth bonding.</p>
+    <h3>🔥 ಕ್ಯಾಂಪ್‌ಫೈರ್ &amp; ಭಜನೆ (CampFire &amp; Bhajan)</h3>
+    <p>Night campfire under the starry sky with soulful musical bhajan sandhya, Deepotsava, and youth bonding.</p>
   </div>
   <div class="hl-card">
-    <h3>ಭಜನೆ ಮತ್ತು ಸಂಕೀರ್ತನೆ</h3>
-    <p>Grand evening Deepotsava and melodious musical bhajan sandhya under the night sky.</p>
+    <h3>📖 ಪಾರಾಯಣ &amp; ಸತ್ಸಂಗ (Parayana &amp; Satsang)</h3>
+    <p>Collective sacred stotra chanting, Hanuman Chalisa parayana, and spiritual wisdom for modern youth.</p>
   </div>
 </section>
 
 <!-- About Section -->
 <section class="section" id="about">
   <div class="section-header">
-    <span class="section-tag">About The Yatra</span>
-    <h2>The Spirit of YUVATMA Yalagur</h2>
-    <p>YUVATMA brings youth and families together for spiritual grounding, joy, and collective service at one of Karnataka's most revered Hanumantha Kshetras.</p>
+    <span class="section-tag">GoSeva - 3.0</span>
+    <h2>The Sacred Spirit of Yalagur Yatra</h2>
+    <p>YUVATMA 2026 brings energetic youth (aged 18–35) together for spiritual awakening, dedicated service to Gomata, and divine fellowship at Sri Kshetra Yalagur.</p>
   </div>
   <div class="about-grid">
     <div class="about-box">
-      <div class="about-box-icon">🛕</div>
+      <div class="about-box-icon">🐄</div>
       <div>
-        <h3>Sri Kshetra Yalagur</h3>
-        <p>Located in Nidagundi taluk, Sri Yalagureshwara is famous for blessing seekers with fearlessness, mental peace, and renewed vitality.</p>
+        <h3>Hands-on Go Seva</h3>
+        <p>The sacred foundation of our yatra. Spend dedicated hours serving Gomata at the Goshala with grass, jaggery feeding, and respectful seva.</p>
+      </div>
+    </div>
+    <div class="about-box">
+      <div class="about-box-icon">🔥</div>
+      <div>
+        <h3>Evening CampFire</h3>
+        <p>Gather around a crackling campfire under the open night sky. Share thoughts, spiritual reflections, and forge life-long youth bonds.</p>
       </div>
     </div>
     <div class="about-box">
       <div class="about-box-icon">🎶</div>
       <div>
         <h3>Soulful Bhajan Sandhya</h3>
-        <p>An immersive musical evening with traditional instruments, stotras, and devotional singing that touches the core of your soul.</p>
+        <p>An immersive musical evening with harmonium, tabla, and soulful chanting of divine stotras that fills your heart with bliss.</p>
       </div>
     </div>
     <div class="about-box">
-      <div class="about-box-icon">🤝</div>
+      <div class="about-box-icon">📖</div>
       <div>
-        <h3>Uplifting Seva &amp; Sangha</h3>
-        <p>Connect with thoughtful, motivated youth. Learn teamwork, simplicity, and humility through meaningful temple seva.</p>
-      </div>
-    </div>
-    <div class="about-box">
-      <div class="about-box-icon">🍲</div>
-      <div>
-        <h3>Pure Satvik Prasada</h3>
-        <p>Wholesome, freshly prepared traditional Karnataka satvik food served with pure love and devotion across all two days.</p>
+        <h3>Sacred Parayana &amp; Darshan</h3>
+        <p>Collective chanting of Hanuman Chalisa &amp; sacred stotras at the revered Sri Kshetra Yalagureshwara shrine for courage and clarity.</p>
       </div>
     </div>
   </div>
@@ -209,8 +211,8 @@
 <section class="section" id="schedule">
   <div class="section-header">
     <span class="section-tag">Trip Itinerary</span>
-    <h2>2 Days of Devotion &amp; Fellowship</h2>
-    <p>Carefully planned to balance spiritual darshan, seva activities, rest, and youth engagement.</p>
+    <h2>2 Days of Devotion, Seva &amp; CampFire</h2>
+    <p>A balanced itinerary featuring Go Seva, CampFire, Parayana, Bhajan, and authentic regional meals.</p>
   </div>
 
   <div class="schedule-tabs">
@@ -223,61 +225,68 @@
     <div class="timeline-item">
       <div class="timeline-time">05:30 AM</div>
       <div class="timeline-content">
-        <h4>Assembly &amp; Bus Departure</h4>
-        <p>Meet at designated pickup points. Board our comfortable reserved bus. Journey begins with prayers and melodious bhajans.</p>
+        <h4>Assembly &amp; Volvo Bus Departure</h4>
+        <p>Meet at designated pickup points in Bengaluru. Board our comfortable luxury Volvo bus. Journey begins with prayers and sankirtan.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">08:30 AM</div>
       <div class="timeline-content">
         <h4>Satvik Breakfast Stop</h4>
-        <p>Stopover for piping hot traditional breakfast, coffee, and tea.</p>
+        <p>Stopover on highway for hot traditional breakfast, coffee, and tea.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">01:00 PM</div>
       <div class="timeline-content">
         <h4>Arrival at Yalagur &amp; Check-In</h4>
-        <p>Reach Sri Kshetra Yalagur. Room allotment, freshening up, and warm welcome.</p>
+        <p>Reach Sri Kshetra Yalagur. Room allotment, freshening up, and warm reception.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">01:30 PM</div>
       <div class="timeline-content">
-        <h4>Mahaprasada Lunch</h4>
-        <p>Enjoy authentic, delicious Satvik lunch in the peaceful kshetra premises.</p>
+        <h4>Uttara Karnataka Rotti Uta (Lunch)</h4>
+        <p>Authentic North Karnataka feast: hot Jolada Rotti, Yennegai Palya, Shenga Chutney Pudi, fresh butter, curd, and satvik delicacies.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">04:00 PM</div>
       <div class="timeline-content">
-        <h4>Youth Introduction Circle</h4>
-        <p>Ice-breaking session, yatra orientation, and sharing inspirations.</p>
+        <h4>Youth Introduction Circle &amp; Orientation</h4>
+        <p>Ice-breaking session, yatra overview, and introducing our GoSeva - 3.0 mission.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">05:30 PM</div>
       <div class="timeline-content">
         <h4>Temple Darshan &amp; Archana</h4>
-        <p>Special coordinated darshan of Sri Yalagureshwara with archana and sankalpa.</p>
+        <p>Special coordinated darshan of Sri Yalagureshwara with archana, sankalpa, and sacred blessings.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">07:00 PM</div>
       <div class="timeline-content">
         <h4>Grand Deepotsava &amp; Bhajan Sandhya</h4>
-        <p>Lighting lamps, soulful musical sankirtan, harmonium, and collective singing.</p>
+        <p>Lighting lamps, soulful musical sankirtan, harmonium, and collective devotional singing.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">08:45 PM</div>
       <div class="timeline-content">
-        <h4>Satvik Dinner &amp; Star Reflections</h4>
-        <p>Wholesome dinner followed by peaceful reflection and quiet night conversations.</p>
+        <h4>Wholesome Satvik Dinner</h4>
+        <p>Nourishing dinner prepared with purity and devotion.</p>
       </div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-time">10:30 PM</div>
+      <div class="timeline-time">09:30 PM</div>
+      <div class="timeline-content">
+        <h4>🔥 CampFire Under the Stars</h4>
+        <p>Youth bonfire circle under the open night sky: inspirational sharing, acoustic bhajans, life stories, and quiet stargazing.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:00 PM</div>
       <div class="timeline-content">
         <h4>Rest &amp; Overnight Stay</h4>
         <p>Restful sleep in clean, hygienic accommodation.</p>
@@ -290,57 +299,64 @@
     <div class="timeline-item">
       <div class="timeline-time">05:45 AM</div>
       <div class="timeline-content">
-        <h4>Suprabhata, Yoga &amp; Meditation</h4>
-        <p>Wake up to sacred chants, followed by refreshing morning stretching and dhyana.</p>
+        <h4>Suprabhata, Yoga &amp; Morning Meditation</h4>
+        <p>Wake up to sacred chanting, refreshing morning yoga stretches, and peaceful dhyana.</p>
       </div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-time">07:30 AM</div>
+      <div class="timeline-time">07:15 AM</div>
       <div class="timeline-content">
-        <h4>Temple Parikrama &amp; Breakfast</h4>
-        <p>Morning temple circumambulation and hearty satvik breakfast.</p>
+        <h4>Temple Parikrama &amp; Hot Breakfast</h4>
+        <p>Morning temple circumambulation followed by hearty satvik breakfast.</p>
       </div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-time">08:45 AM</div>
+      <div class="timeline-time">08:30 AM</div>
       <div class="timeline-content">
-        <h4>Dedicated Seva Activity</h4>
-        <p>Hands-on seva at temple surroundings, cleaning, prasada assistance, and tree care.</p>
+        <h4>🐄 Dedicated Go Seva at Goshala</h4>
+        <p>Gau puja, feeding sacred cows with fresh grass &amp; jaggery, grooming, cleaning the goshala, and experiencing divine grace.</p>
       </div>
     </div>
     <div class="timeline-item">
-      <div class="timeline-time">11:30 AM</div>
+      <div class="timeline-time">10:45 AM</div>
+      <div class="timeline-content">
+        <h4>📖 Hanuman Chalisa Parayana &amp; Stotras</h4>
+        <p>Collective powerful parayana of Sri Hanuman Chalisa and sacred stotras for fearlessness and mental clarity.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">11:45 AM</div>
       <div class="timeline-content">
         <h4>Interactive Youth Satsang</h4>
-        <p>Engaging youth discussion: Applying timeless spiritual values to modern daily challenges.</p>
+        <p>Engaging group discussion: Translating ancient spiritual principles into modern everyday youth life.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">01:00 PM</div>
       <div class="timeline-content">
         <h4>Farewell Mahaprasada Lunch</h4>
-        <p>Hearty Sunday prasada feast shared together.</p>
+        <p>Traditional Sunday mahaprasada feast shared with all fellow yatris.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">02:30 PM</div>
       <div class="timeline-content">
         <h4>Reflections, Photos &amp; Blessings</h4>
-        <p>Sharing our yatra memories, blessings from elders, and group photo session.</p>
+        <p>Sharing our yatra memories, blessings from mentors, and commemorative group photos.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">04:00 PM</div>
       <div class="timeline-content">
-        <h4>Departure Towards Home</h4>
-        <p>Boarding bus with uplifted hearts, joyful bhajans, and lifelong bonds.</p>
+        <h4>Departure in Volvo Bus Towards Home</h4>
+        <p>Boarding our Volvo bus with elevated minds, peaceful hearts, and lifelong spiritual friendships.</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-time">09:30 PM</div>
       <div class="timeline-content">
         <h4>Safe Arrival &amp; Drop-Off</h4>
-        <p>Reach designated drop points safely. Subhamastu!</p>
+        <p>Reaching designated drop points safely. Subhamastu!</p>
       </div>
     </div>
   </div>
@@ -351,38 +367,38 @@
   <div class="section-header">
     <span class="section-tag">All-Inclusive</span>
     <h2>Facilities Provided</h2>
-    <p>We ensure a smooth, worry-free pilgrimage so you can focus entirely on the spiritual experience.</p>
+    <p>Everything taken care of so you can immerse fully in the seva and spiritual experience.</p>
   </div>
   <div class="facilities-grid">
     <div class="facility-card">
       <div class="facility-icon">🚌</div>
-      <h3>Bus Transportation</h3>
-      <p>Clean, comfortable reserved bus travel from Bangalore pickup points to Yalagur and return.</p>
+      <h3>Luxury Volvo Bus</h3>
+      <p>Smooth, air-suspension Volvo bus travel from Bengaluru pickup points to Yalagur and return.</p>
     </div>
     <div class="facility-card">
       <div class="facility-icon">🍲</div>
-      <h3>Pure Satvik Meals</h3>
-      <p>All meals covered: 2 Breakfasts, 2 Lunches, 1 Dinner, plus morning/evening tea &amp; refreshments.</p>
+      <h3>Uttara Karnataka Rotti Uta</h3>
+      <p>Authentic North Karnataka satvik meals: hot Jolada Rotti, Yennegai Palya, Shenga Chutney Pudi, fresh butter, curd &amp; regional sweets.</p>
     </div>
     <div class="facility-card">
       <div class="facility-icon">🛏️</div>
       <h3>Clean Accommodation</h3>
-      <p>Safe and hygienic stay arrangements with clean bedding and proper washroom facilities.</p>
+      <p>Safe and hygienic stay arrangements with clean washrooms and bedding for overnight comfort.</p>
     </div>
     <div class="facility-card">
-      <div class="facility-icon">🙏</div>
-      <h3>Temple Darshan &amp; Archana</h3>
-      <p>Coordinated group temple entry, archana seva, and special blessings at Sri Yalagureshwara.</p>
+      <div class="facility-icon">🐄</div>
+      <h3>Go Seva Kits &amp; Materials</h3>
+      <p>Cow feeding materials (fresh grass, jaggery), puja accessories, and guided Goshala seva support.</p>
     </div>
     <div class="facility-card">
-      <div class="facility-icon">🎶</div>
-      <h3>Bhajan Kits &amp; Materials</h3>
-      <p>Bhajan songbook booklets, deepotsava lamps, and spiritual activity accessories provided.</p>
+      <div class="facility-icon">🔥</div>
+      <h3>CampFire &amp; Parayana Materials</h3>
+      <p>Bonfire arrangement, stotra &amp; Hanuman Chalisa lyric booklets, and youth activity accessories.</p>
     </div>
     <div class="facility-card">
       <div class="facility-icon">🩺</div>
-      <h3>24/7 Support &amp; First Aid</h3>
-      <p>Dedicated YUVATMA coordinators, on-board first aid kit, and emergency assistance at all times.</p>
+      <h3>24/7 Coordinator &amp; First Aid</h3>
+      <p>Dedicated team coordinators, emergency support, and first-aid kit throughout the journey.</p>
     </div>
   </div>
 </section>
@@ -390,35 +406,36 @@
 <!-- Guidelines & What to Carry -->
 <section class="section" id="guidelines" style="padding-top: 0;">
   <div class="guidelines-card">
-    <h3 style="color:var(--red); font-size:1.4rem;">🎒 What to Bring &amp; Guidelines</h3>
+    <h3 style="color:var(--red); font-size:1.4rem;">🎒 Guidelines &amp; Eligibility</h3>
     <ul>
-      <li><b>Attire:</b> Traditional, comfortable, and modest Indian clothing suitable for temple premises.</li>
-      <li><b>Essentials:</b> Reusable water bottle, personal toiletries, and any personal daily medications.</li>
-      <li><b>Weather Gear:</b> A light shawl or jacket for cool early mornings and evening breeze.</li>
+      <li><b>Age Limit:</b> 18 to 35 years exclusively.</li>
+      <li><b>Attire:</b> Traditional, modest Indian clothing suitable for temple premises and Goshala seva.</li>
+      <li><b>Essentials:</b> Reusable water bottle, personal toiletries, and any personal routine medications.</li>
+      <li><b>Weather Gear:</b> A light jacket or shawl for the night CampFire and cool morning breeze.</li>
       <li><b>Identification:</b> A valid government photo ID card (Aadhaar / Driving License).</li>
-      <li><b>Spirit:</b> An open heart, cooperative mindset, and enthusiasm for group seva and bhajans!</li>
+      <li><b>Mindset:</b> Enthusiastic spirit for Go Seva, bhajans, and collaborative community living!</li>
     </ul>
   </div>
 </section>
 
 <!-- Booking Section -->
 <main id="book" class="book">
-  <h2>Book your spot</h2>
-  <p class="sub">Takes about 3 minutes. One booking covers up to 4 people.</p>
+  <h2 id="book-title">Book your spot</h2>
+  <p class="sub">YUVATMA 2026 | Yalagur | GoSeva - 3.0</p>
 
-  <!-- Pre-booking Marketing Notice Box -->
+  <!-- Pre-booking Marketing Notice Box (Shown before 7th Nov) -->
   <div class="prebooking-notice" id="prebooking-banner">
     <div class="prebooking-icon">📢</div>
     <div class="prebooking-content">
       <h3>Bookings Open on 7th November 2026</h3>
-      <p>Official registration for YUVATMA Yalagur 2026 opens on <b>Friday, 7th November</b>. With strictly <b>35 seats</b>, slots will be confirmed on a first-come, first-served basis!</p>
+      <p>Official registration for YUVATMA GoSeva - 3.0 opens on <b>Friday, 7th November</b>. Strictly limited to <b>35 seats</b> (Age limit: 18–35). Contribution details will be disclosed on 7th Nov.</p>
       <div class="prebooking-actions">
-        <a class="btn sm" id="wa-notify-btn" href="https://wa.me/919739755771?text=Namaskara%20Team%20YUVATMA,%20please%20notify%20me%20when%20Yalagur%20bookings%20open%20on%207th%20Nov!" target="_blank">🔔 Get WhatsApp Reminder</a>
-        <button type="button" class="btn sm ghost" id="preview-form-toggle">Preview Booking Steps</button>
+        <button type="button" class="btn sm" id="prebook-interested-btn">✋ Express Interest &amp; Join Group</button>
       </div>
     </div>
   </div>
 
+  <!-- Booking Form Card (Active once bookings open on 7th Nov) -->
   <div class="card" id="card">
     <ol class="steps" id="steps"></ol>
     <form id="f" novalidate>
@@ -434,14 +451,47 @@
   </div>
 </main>
 
-<!-- QR Code Popup Modal -->
+<!-- Interested Modal Dialog (Name, Age, Ph no, Gotra -> Join Group) -->
+<div class="modal-overlay" id="interested-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="int-modal-title">
+  <div class="modal-dialog">
+    <button type="button" class="modal-close" id="int-modal-close" aria-label="Close dialog">&times;</button>
+    <div class="interested-modal-header">
+      <span class="interested-badge">GoSeva - 3.0</span>
+      <h3 class="modal-title" id="int-modal-title">Express Interest &amp; Join Group</h3>
+      <p class="modal-subtitle">Fill your details below to join the official YUVATMA WhatsApp group. Age limit: 18–35 years.</p>
+    </div>
+    <form id="interested-form" class="interested-form" novalidate>
+      <div class="form-group">
+        <label for="int-name">Full Name <span style="color:var(--red)">*</span></label>
+        <input type="text" id="int-name" autocomplete="name" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="int-age">Age (18–35) <span style="color:var(--red)">*</span></label>
+        <input type="number" id="int-age" min="18" max="35" inputmode="numeric" placeholder="e.g. 24" required>
+        <div class="field-hint">Eligible age group: 18 to 35 years.</div>
+      </div>
+      <div class="form-group">
+        <label for="int-phone">WhatsApp Mobile Number <span style="color:var(--red)">*</span></label>
+        <input type="tel" id="int-phone" inputmode="numeric" maxlength="10" placeholder="10-digit mobile number" required>
+      </div>
+      <div class="form-group">
+        <label for="int-gotra">Gotra <span style="color:var(--red)">*</span></label>
+        <input type="text" id="int-gotra" placeholder="e.g. Kashyapa / Vishwamitra / Bharadwaja" required>
+      </div>
+      <p class="err-msg" id="int-err" role="alert"></p>
+      <button type="submit" class="btn" id="int-submit-btn">Join group &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<!-- QR Code Popup Modal (For live bookings on laptop) -->
 <div class="modal-overlay" id="qr-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
   <div class="modal-dialog">
     <button type="button" class="modal-close" id="qr-modal-close" aria-label="Close dialog">&times;</button>
     <h3 class="modal-title" id="qr-modal-title">Scan &amp; Pay via UPI</h3>
     <p class="modal-subtitle">Ideal for laptop bookings. Scan using any UPI app on your phone.</p>
     
-    <div class="qr-amount-badge" id="qr-amount-text">₹1,780</div>
+    <div class="qr-amount-badge" id="qr-amount-text">₹1,785</div>
 
     <div class="qr-container">
       <img id="qr-image" class="qr-img" src="" alt="UPI QR Code for Payment">
@@ -465,9 +515,9 @@
 
 <!-- Footer -->
 <footer>
-  <p>Questions about the yatra? <a id="wa" href="https://wa.me/919739755771" target="_blank">Message us on WhatsApp (+91 9739755771)</a></p>
+  <p>Questions about the yatra? <a id="wa" href="https://chat.whatsapp.com/E0sBKM5HKgl7DMPtVPsWwL?s=cl&p=a&iam=2" target="_blank">Join our WhatsApp Group</a></p>
   <p>Call us: <a href="tel:+919739755771">+91 9739755771</a> | Email: <a href="mailto:jahagirdarvivek26@gmail.com">jahagirdarvivek26@gmail.com</a></p>
-  <p style="margin-top: 14px; opacity: 0.85;">Team YUVATMA ❤️ | Jai Bajrangbali</p>
+  <p style="margin-top: 14px; opacity: 0.85;">Team YUVATMA ❤️ | Yalagur GoSeva - 3.0</p>
 </footer>
 
 <script src="config.js"></script>

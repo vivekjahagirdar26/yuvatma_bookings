@@ -1,9 +1,8 @@
 // YUVATMA Backend - Google Apps Script
 // Paste into: Extensions > Apps Script of your Google Sheet.
-// Deploy as: Deploy > New deployment > Web app (Execute as: Me, Who has access: Anyone).
-// After making any edits: Deploy > Manage deployments > Edit > New version > Deploy.
+// Deploy as: Deploy > Manage deployments > Edit > New version > Deploy. (Execute as: Me, Who has access: Anyone)
 
-const PRICE = 1780;                                              // Contribution per person (₹)
+const PRICE = 1785;                                              // Contribution per person (₹)
 const TOTAL_SEATS = 35;                                          // Total bus capacity
 const SITE_URL = "https://vivekjahagirdar26.github.io/yuvatma_bookings/";  // Where site is hosted (keep trailing slash)
 const REPLY_TO = "jahagirdarvivek26@gmail.com";                  // Replies land here
@@ -14,15 +13,20 @@ const H = {
   B: ["Timestamp", "Booking ID", "People", "Total (₹)", "Name", "Age", "Mobile", "Email", "Address", "Gotra", "Parent / Emergency contact", "Transaction ID", "Screenshot", "Queries", "Status", "Verified By", "Verified At", "Notes"],
   A: ["Booking ID", "Role", "Name", "Age", "Mobile"],
   R: ["Time", "Booking ID", "Reply", "By"],
-  S: ["Token hash", "Email", "Expires"]
+  S: ["Token hash", "Email", "Expires"],
+  I: ["Timestamp", "Name", "Age", "Phone", "Gotra"]             // Interested inquiries
 };
 
-// Handle GET requests (e.g. for live seat availability check)
+// Handle GET requests (e.g. for live seat availability check or interested count)
 function doGet(e) {
   try {
     const action = e && e.parameter && e.parameter.action ? e.parameter.action : "seats";
     if (action === "seats" || action === "stats") {
       return getStats();
+    }
+    if (action === "interestedCount") {
+      const I = tab("Interested", H.I);
+      return out({ ok: true, count: Math.max(0, I.getLastRow() - 1) });
     }
     return out({ ok: true, message: "YUVATMA API is active.", stats: computeSeatStats() });
   } catch (err) {
@@ -42,6 +46,7 @@ function doPost(e) {
   try {
     switch (d.action || "book") {
       case "book": return book(d);
+      case "interested": return recordInterested(d);
       case "seats":
       case "stats": return getStats();
       case "sendCode": return sendCode(d);
@@ -52,6 +57,32 @@ function doPost(e) {
     return out({ ok: false, error: "Unknown action." });
   } catch (x) {
     return out({ ok: false, error: "Something went wrong on our side. Please try again: " + x.message });
+  }
+}
+
+// ---------- Record Interested Person (WhatsApp Group Redirect) ----------
+function recordInterested(d) {
+  if (!d.name || !d.age || !d.phone || !d.gotra) {
+    return out({ ok: false, error: "Please fill Name, Age, Phone, and Gotra." });
+  }
+  const age = Number(d.age);
+  if (isNaN(age) || age < 18 || age > 35) {
+    return out({ ok: false, error: "Age limit is 18–35 years." });
+  }
+  const cleanPhone = String(d.phone).replace(/\D/g, "");
+  if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+    return out({ ok: false, error: "Please enter a valid 10-digit phone number." });
+  }
+
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const I = tab("Interested", H.I);
+    I.appendRow([new Date(), d.name.trim(), age, cleanPhone, d.gotra.trim()].map(safe));
+    const totalInterested = Math.max(0, I.getLastRow() - 1);
+    return out({ ok: true, count: totalInterested });
+  } finally {
+    lock.releaseLock();
   }
 }
 
@@ -137,6 +168,8 @@ function book(d) {
 function validate(d) {
   if (!d || !(d.n >= 1 && d.n <= 4)) return "Invalid group size.";
   if (!d.p || !d.p.name || !/^\S+@\S+\.\S+$/.test(d.p.email || "")) return "Missing your name or a valid email.";
+  const age = Number(d.p.age);
+  if (isNaN(age) || age < 18 || age > 35) return "Age must be between 18 and 35 years.";
   if (!d.txn || !d.shot) return "Transaction ID and payment screenshot are required.";
   if (d.members.length !== d.n - 1) return "Group member details don't match group size.";
   return "";
@@ -216,6 +249,7 @@ function logout(d) {
 function onOpen() {
   SpreadsheetApp.getUi().createMenu("YUVATMA")
     .addItem("Live Seat Count Summary", "showSeatSummary")
+    .addItem("Interested People Count", "showInterestedSummary")
     .addSeparator()
     .addItem("Reply to selected booking", "replySelected")
     .addItem("Mark selected as Verified", "verifySelected")
@@ -230,6 +264,12 @@ function showSeatSummary() {
     "• Total Booked: " + s.bookedSeats + " seats\n" +
     "• Seats Remaining: " + s.seatsLeft + " seats"
   );
+}
+
+function showInterestedSummary() {
+  const I = tab("Interested", H.I);
+  const count = Math.max(0, I.getLastRow() - 1);
+  SpreadsheetApp.getUi().alert("YUVATMA 2026 - Interested Inquiries\n\nTotal people who expressed interest & joined group: " + count);
 }
 
 function selected() {
@@ -271,7 +311,7 @@ function verifySelected() {
 function confirmMail(p, id, n, total) {
   MailApp.sendEmail({
     to: p.email, replyTo: REPLY_TO, subject: "YUVATMA 2026: booking received (" + id + ")",
-    htmlBody: "<p>Namaskara " + esc(p.name) + ",</p><p>We have successfully received your booking submission for <b>YUVATMA 2026</b> (November 28–29, 2026).</p>" +
+    htmlBody: "<p>Namaskara " + esc(p.name) + ",</p><p>We have successfully received your booking submission for <b>YUVATMA 2026 | Yalagur | GoSeva - 3.0</b> (November 28–29, 2026).</p>" +
       "<p><b>Booking ID: " + id + "</b><br>Seats Reserved: " + n + "<br>Total Contribution: ₹" + total + "</p>" +
       "<p>Our team will verify your payment screenshot and confirm your booking shortly. You can check your booking anytime: <a href='" + SITE_URL + "my-booking.html'>My Booking</a> (log in with your registered email: " + p.email + ").</p><p>Warm regards,<br>Team YUVATMA ❤️</p>"
   });

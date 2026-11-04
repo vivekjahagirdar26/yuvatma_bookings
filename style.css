@@ -59,10 +59,16 @@ h1, h2, h3, h4 {
   align-items: center;
   gap: 8px;
 }
-.announcement-bar a {
+.announcement-bar a, .announcement-bar button {
   color: #fff;
   text-decoration: underline;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
   margin-left: 6px;
+  padding: 0;
 }
 
 /* Top Header */
@@ -218,41 +224,60 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 20px;
+  padding: 16px 18px;
   background: var(--paper);
   border-bottom: 1px solid var(--line);
+  position: relative;
+  min-height: 64px;
 }
 .sidebar-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
 }
 .sidebar-logo {
-  height: 30px;
+  height: 28px;
   width: auto;
+  flex-shrink: 0;
 }
 .sidebar-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--red);
   margin: 0;
-}
-.sidebar-sub {
-  font-size: 12px;
-  color: var(--ink-light);
-  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .sidebar-close {
-  background: transparent;
-  border: 0;
-  font-size: 28px;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  background: #f0e6d6;
+  border: 1px solid var(--line);
+  font-size: 20px;
+  font-weight: 700;
   color: var(--ink);
   cursor: pointer;
   line-height: 1;
-  padding: 4px 8px;
-  border-radius: 8px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 10px;
+  padding: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
 }
 .sidebar-close:hover {
-  background: var(--line);
+  background: var(--red);
+  color: #ffffff;
+  border-color: var(--red);
 }
 
 /* Profile in Sidebar */
@@ -401,13 +426,13 @@ h1, h2, h3, h4 {
   font-size: 1.4rem;
 }
 h1 {
-  font-size: clamp(2.8rem, 10vw, 5.2rem);
+  font-size: clamp(2.5rem, 8vw, 4.4rem);
   font-weight: 800;
   color: var(--gold);
   text-shadow: 3px 3px 0 var(--ink);
 }
 .lead {
-  max-width: 36ch;
+  max-width: 38ch;
   font-size: 1.15rem;
   margin: 14px 0 20px;
   line-height: 1.6;
@@ -424,7 +449,7 @@ h1 {
 .facts b {
   color: var(--gold);
   display: inline-block;
-  min-width: 7.2em;
+  min-width: 7.4em;
 }
 .hero-actions {
   display: flex;
@@ -434,6 +459,8 @@ h1 {
 }
 .poster {
   width: 100%;
+  max-height: 480px;
+  object-fit: cover;
   border: 4px solid var(--gold);
   border-radius: var(--r);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
@@ -579,7 +606,7 @@ h1 {
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: var(--r);
-  padding: 20px;
+  padding: 22px;
   box-shadow: var(--shadow);
   transition: transform 0.2s ease;
 }
@@ -587,7 +614,7 @@ h1 {
   transform: translateY(-2px);
 }
 .hl-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--red);
   margin-bottom: 6px;
 }
@@ -595,6 +622,7 @@ h1 {
   margin: 0;
   color: var(--ink-light);
   font-size: 14.5px;
+  line-height: 1.55;
 }
 @media (min-width: 700px) {
   .hl {
@@ -610,7 +638,7 @@ h1 {
 }
 .section-header {
   text-align: center;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto 36px;
 }
 .section-tag {
@@ -807,31 +835,32 @@ h1 {
   background: #fff8e6;
   border: 2px solid var(--gold);
   border-radius: var(--r);
-  padding: 20px;
+  padding: 24px;
   margin-bottom: 24px;
   display: flex;
   gap: 16px;
   align-items: flex-start;
+  box-shadow: var(--shadow);
 }
 .prebooking-icon {
-  font-size: 2rem;
+  font-size: 2.2rem;
   flex-shrink: 0;
 }
 .prebooking-content h3 {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: var(--red);
   margin-bottom: 6px;
 }
 .prebooking-content p {
-  margin: 0 0 12px;
+  margin: 0 0 16px;
   font-size: 14.5px;
   color: var(--ink);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .prebooking-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .card {
@@ -987,7 +1016,7 @@ legend {
   min-width: 140px;
 }
 
-/* Modal Popup for QR Code */
+/* Modal Popup Core */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1009,14 +1038,16 @@ legend {
 .modal-dialog {
   background: #ffffff;
   border-radius: var(--r);
-  max-width: 420px;
+  max-width: 440px;
   width: 100%;
-  padding: 24px;
+  padding: 26px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   position: relative;
   text-align: center;
   transform: translateY(20px) scale(0.95);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 .modal-overlay.active .modal-dialog {
   transform: translateY(0) scale(1);
@@ -1047,6 +1078,74 @@ legend {
   color: var(--ink-light);
   margin: 0 0 16px;
 }
+
+/* Interested Modal Form Styling */
+.interested-modal-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.interested-badge {
+  display: inline-block;
+  background: var(--gold-light);
+  color: var(--red);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.interested-form {
+  text-align: left;
+}
+.interested-form .form-group {
+  margin-bottom: 14px;
+}
+.interested-form label {
+  display: block;
+  font-weight: 700;
+  font-size: 13.5px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+.interested-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  margin-top: 0;
+}
+.interested-form input:focus {
+  outline: 0;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(158, 27, 31, 0.15);
+}
+.interested-form .field-hint {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 4px;
+}
+.interested-form .err-msg {
+  color: #b00020;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin: 10px 0;
+  min-height: 1.4em;
+  text-align: center;
+}
+.interested-form .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* QR Code Modal Styling */
 .qr-container {
   display: flex;
   justify-content: center;

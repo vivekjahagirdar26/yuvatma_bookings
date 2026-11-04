@@ -28,6 +28,13 @@
   if (menuBtn) menuBtn.onclick = openSidebar;
   if (closeBtn) closeBtn.onclick = closeSidebar;
   if (overlay) overlay.onclick = closeSidebar;
+
+  document.addEventListener("click", e => {
+    if (e.target.closest("#sidebar-close") || e.target.closest(".sidebar-close")) {
+      closeSidebar();
+    }
+  });
+
   $$(".sidebar-link").forEach(link => link.addEventListener("click", closeSidebar));
 
   document.addEventListener("keydown", e => {
@@ -162,8 +169,9 @@
   }
 
   // Contact links
-  if (C.WHATSAPP) {
-    const waUrl = "https://wa.me/" + C.WHATSAPP;
+  const waGroup = C.WHATSAPP_GROUP || C.WHATSAPP;
+  if (waGroup) {
+    const waUrl = String(waGroup).startsWith("http") ? waGroup : "https://wa.me/" + waGroup;
     const waFooter = $("#wa");
     if (waFooter) waFooter.href = waUrl;
     const sbWa = $("#sb-wa-link");
